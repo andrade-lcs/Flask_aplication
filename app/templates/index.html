@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
-</head>
-<body>
-    <h1>Hello Word</h1>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi accusantium dolor iste, tempora, consequuntur quisquam nemo aspernatur tenetur, quas totam fugiat. Velit, dolorum unde. Adipisci quae neque odit ut ea.</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Olá {{ user.username }}!</h1>
+<div>
+    {% for post in posts %}
+        <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+    {% else %}
+        <p>Me desculpe, mas não há postes disponíveis</p>
+    {% endfor %}
+</div>
+{% endblock %}
